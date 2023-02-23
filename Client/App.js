@@ -6,6 +6,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import LoginScreen from './screens/LoginScreen';
 import Prijavi from './screens/Prijavi';
 import PrijaviPozar from './screens/PrijaviPozar';
+import Pozari from './screens/Pozari';
+import USlucajuPozara from './screens/USlucajuPozara';
 
 const AppStack = createStackNavigator();
 
@@ -18,6 +20,8 @@ export default function App() {
           <AppStack.Screen name="LoginScreen" component={LoginScreen} />
           <AppStack.Screen name="Prijavi" component={Prijavi} />
           <AppStack.Screen name="PrijaviPozar" component={PrijaviPozar} />
+          <AppStack.Screen name="Pozari" component={Pozari} />
+          <AppStack.Screen name="USlucajuPozara" component={USlucajuPozara} />
         </AppStack.Navigator>
       </NavigationContainer>
     </>

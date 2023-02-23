@@ -13,7 +13,7 @@ const connection = mysql.createConnection({
   host:'116.203.192.158',
   user:'root',
   password:'Travnik55$',
-  database:'itreboot'
+  database:'adonis'
 });
 
 app.post('/PrijaviPozar', (req, res) => {

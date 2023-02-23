@@ -10,9 +10,9 @@ const Home = () => {
     <View style={styles.container}>
       <Text style = {styles.Naslov}>Meni</Text>
       <Pressable style = {styles.Parent} onPress={() => {navigation.navigate('PrijaviPozar')}} ><Text style = {styles.DivTekst}>Prijavi požar</Text></Pressable>
-      <Pressable style = {styles.Child}><Text style = {styles.DivTekst1}>Pogledaj trenutne požare</Text></Pressable>
+      <Pressable style = {styles.Child} onPress={() => {navigation.navigate('Pozari')}} ><Text style = {styles.DivTekst1}>Pogledaj trenutne požare</Text></Pressable>
       <Pressable style = {styles.Child}><Text style = {styles.DivTekst1}>Kako spriječiti požar?</Text></Pressable>
-      <Pressable style = {styles.Child}><Text style = {styles.DivTekst1}>Šta uraditi u slučaju požara?</Text></Pressable>
+      <Pressable style = {styles.Child} onPress={() => {navigation.navigate('USlucajuPozara')}}><Text style = {styles.DivTekst1}>Šta uraditi u slučaju požara?</Text></Pressable>
       <Pressable style = {styles.Child}><Text style = {styles.DivTekst1}>Informacije o aplikaciji</Text></Pressable>
     </View>
   );
