@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
+const jwt = require('jsonwebtoken');
 
 const app = express();
 const port = 3000;
@@ -27,6 +28,10 @@ app.post('/PrijaviPozar', (req, res) => {
   res.json({
     message: "poslano",
   });
+});
+
+app.post('/Prijava korisnika', (req, res) => {
+
 });
 
 

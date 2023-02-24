@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   },
 
   pozar: {
-    backgroundColor: '#621708',
+    background: 'linear-gradient(#8BC6EC, #9599E2)',
     width: 340,
     height: 150,
     marginTop: 20,

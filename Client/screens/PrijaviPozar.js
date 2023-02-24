@@ -1,7 +1,7 @@
 import {React, useState} from 'react';
 import { View, Text, StyleSheet, Pressable, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
+import { MultipleSelectList } from 'react-native-dropdown-select-list'
 
 
 const PrijaviPozar = () => {
@@ -9,7 +9,7 @@ const PrijaviPozar = () => {
   const [vrijeme, setVrijeme] = useState('');
   const [lokacija, setLokacija] = useState('');
   const [dodinfo, setDodInfo] = useState('');
-  
+
   const handleSubmit = () => {
     const formData = new FormData();
     formData.append('vrijeme', vrijeme);
@@ -36,19 +36,20 @@ const PrijaviPozar = () => {
 
   return (
     <View style={styles.container}>
-      <View style = {styles.prijava}>
-        <Text style = {styles.Naslov}>Prijavi požar</Text>
-        
+      <Text style = {styles.Naslov}>Prijavi požar</Text>
+        <View style = {styles.prijava}>
+          <View style = {styles.prijava1}>
       <Text style = {styles.Podnaslov2}>Vrijeme</Text>
       <TextInput value={vrijeme} onChangeText={text => setVrijeme(text)} style = {styles.input1}></TextInput>
       
       <Text style = {styles.Podnaslov1}>Lokacija</Text>
-      <TextInput value={lokacija} onChangeText={text => setLokacija(text)} style = {styles.input1}></TextInput>
+      <TextInput value={lokacija} onChangeText={text => setLokacija(text)} style = {styles.input2}></TextInput>
 
       <Text style = {styles.Podnaslov3}>Dodatne informacije</Text>
-      <TextInput value={dodinfo} onChangeText={text => setDodInfo(text)} style = {styles.input1}></TextInput>
+      <TextInput value={dodinfo} onChangeText={text => setDodInfo(text)} style = {styles.input3}></TextInput>
         
         <Pressable style = {styles.signUp} onPress={handleSubmit}><Text style = {{fontSize: 20, fontWeight: 'bold', left: 100}}>Prijavi</Text></Pressable>
+        </View>
       </View>
     </View>
     
@@ -65,14 +66,26 @@ const styles = StyleSheet.create({
   prijava: {
     flex: 1,
     alignItems: 'center',
-    top: 100,
-    backgroundColor: '#FFFFFF'
+    marginTop: 100,
+    width: 350,
+    height: 50,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 30,
+  },
+
+  prijava1: {
+    alignItems: 'center',
+    width: 350,
+    height: 460,
+    backgroundColor: '#2f3e46',
+    borderRadius: 30,
   },
 
   input1:{
     borderWidth: 1,
     borderRadius: 20,
-    width: 350,
+    top: 25,
+    width: 300,
     height: 50,
     backgroundColor: '#F5F5F5'
   },
@@ -80,102 +93,60 @@ const styles = StyleSheet.create({
   input2:{
     borderWidth: 1,
     borderRadius: 20,
-    width: 350,
+    width: 300,
     height: 50,
-    top: 20,
+    top: 40,
     backgroundColor: '#F5F5F5'
   },
   
   input3:{
     borderWidth: 1,
     borderRadius: 20,
-    width: 350,
+    width: 300,
     height: 50,
-    top: 40,
+    top: 55,
     backgroundColor: '#F5F5F5'
   },
 
   Naslov: {
     fontSize: 35,
     fontFamily: 'notoserif',
-    bottom: 20,
-    color: '#621708',
+    top: 50,
+    color: '#2f3e46',
     fontWeight: 'bold'
   },
 
   Podnaslov1: {
-    fontSize: 18,
-    bottom: 5,
-    right: 130,
-    color: 'black',
-    top: 15,
-    fontWeight: 'normal'
+    fontSize: 23,
+    bottom: 0,
+    right: 90,
+    color: 'white',
+    top: 30,
+    fontWeight: 'bold'
   },
 
   Podnaslov2: {
-    fontSize: 18,
+    fontSize: 23,
     bottom: 5,
-    right: 130,
-    color: 'black',
-    fontWeight: 'normal'
+    top: 15,
+    right: 90,
+    color: 'white',
+    fontWeight: 'bold'
   },
 
   Podnaslov3: {
-    fontSize: 18,
-    top: 35,
-    right: 75,
-    color: 'black',
-    fontWeight: 'normal'
+    fontSize: 23,
+    top: 50,
+    right: 30,
+    color: 'white',
+    fontWeight: 'bold'
   },
 
-  Parent:{
-    width: 300,
-    height: 120,
-    backgroundColor: '#2F80ED',
-    borderRadius: 24,
-    marginTop: 10,
-    display: 'flex',
-    justifyContent: 'center'
-  },
-
-  Child:{
-    width: 300,
-    height: 120,
-    backgroundColor: '#1A1D1F',
-    borderRadius: 24,
-    marginTop: 10,
-    display: 'flex',
-    justifyContent: 'center'
-  },
-
-
-  DivTekst:{
-   color: 'white',
-   fontSize: 50,
-   fontWeight: 'bold',
-   marginLeft: 70,
-  },
-
-  dugme:{
-    width: 150,
-    bottom: 0,
-    height: 50,
-    backgroundColor: "#2F80ED",
-    borderRadius: 8,
-  },
-
-  dugmeTekst:{
-    fontSize: 20,
-    color: "white",
-    marginLeft: 25,
-    marginTop: 5,
-    fontWeight: 'bold',
-  },
 
   signUp:{
       borderWidth: 1,
       borderRadius: 20,
-      top: 80,
+      top: 110,
       width: 300,
       height: 50,
       backgroundColor: '#EFEFEF',
@@ -183,20 +154,6 @@ const styles = StyleSheet.create({
       justifyContent: 'center'
   },
 
-  icons:{
-    borderWidth: 1,
-    borderRadius: 10,
-    width: 80,
-    height: 60,
-    backgroundColor: '#EFEFEF',
-    top: 30,
-    margin: 10,
-  },
-
-  ikonica:{
-    left: 15,
-    top: 5,
-  }
 });
 
 export default PrijaviPozar;
