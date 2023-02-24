@@ -8,6 +8,8 @@ import Prijavi from './screens/Prijavi';
 import PrijaviPozar from './screens/PrijaviPozar';
 import Pozari from './screens/Pozari';
 import USlucajuPozara from './screens/USlucajuPozara';
+import KakoSprijeciti from './screens/KakoSprijeciti';
+import Info from './screens/Info'
 
 const AppStack = createStackNavigator();
 
@@ -21,7 +23,9 @@ export default function App() {
           <AppStack.Screen name="Prijavi" component={Prijavi} />
           <AppStack.Screen name="PrijaviPozar" component={PrijaviPozar} />
           <AppStack.Screen name="Pozari" component={Pozari} />
+          <AppStack.Screen name="KakoSprijeciti" component={KakoSprijeciti} />
           <AppStack.Screen name="USlucajuPozara" component={USlucajuPozara} />
+          <AppStack.Screen name="Info" component={Info} />
         </AppStack.Navigator>
       </NavigationContainer>
     </>

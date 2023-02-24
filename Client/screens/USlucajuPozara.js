@@ -6,41 +6,34 @@ import { useNavigation } from '@react-navigation/native';
 
 const USlucajuPozara = () => {
   
-  const [vrijeme, setVrijeme] = useState('');
-  const [lokacija, setLokacija] = useState('');
-  const [dodinfo, setDodInfo] = useState('');
-  
-  const handleSubmit = () => {
-    const formData = new FormData();
-    formData.append('vrijeme', vrijeme);
-    formData.append('lokacija', lokacija);
-    formData.append('dodinfo', dodinfo);
-
-    fetch('http://192.168.1.2:3000/PrijaviPozar', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
 
   const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
       <View style = {styles.prijava}>
-        <Text style = {styles.Naslov}>Trenutni požari</Text>
+        <Text style = {styles.Naslov}>U slučaju požara</Text>
 
         <View style = {styles.pozar}>
-            <Text></Text>
+            <Text style = {styles.lokacija}>
+                1. Stanite i razmislite gdje se nalazite.{"\n"}
+                {"\n"}
+                2. Primijetite li požar, odmah nazovite vatrogasce na broj 193 ili Centar 112 ili
+                policiju na broj 192.{"\n"}
+                {"\n"}
+                3. Počnite razgovor odmah govoreći polako i razgovjetno, navodeći što se dogodilo i da li su ljudi u opasnosti.{"\n"}
+                {"\n"}
+            </Text>
+        </View>
+        <View style = {styles.pozar1}>
+            <Text style = {styles.lokacija}>
+            4. Navedite točnu adresu mjesta požara ili drugog izvanrednog događaja.{"\n"}
+                {"\n"}
+                5. Budite spremni dati dodatne informacije i osobne podatke (ime i prezime).{"\n"}
+                {"\n"}
+                6. Završite razgovor kada Vam vatrogasci koje ste kontaktirali to dozvole.{"\n"}
+                {"\n"}
+            </Text>
         </View>
       </View>
     </View>
@@ -55,11 +48,34 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF'
   },
 
+  lokacija: {
+    marginTop: 20,
+    margin: 20,
+    color: '#FFFFFF',
+    fontSize: 17,
+    fontStyle: 'italic'
+  },
+
   prijava: {
     flex: 1,
     alignItems: 'center',
     top: 100,
     backgroundColor: '#FFFFFF'
+  },
+
+  pozar: {
+    backgroundColor: '#621708',
+    width: 330,
+    height: 290,
+    borderRadius: 25
+  },
+
+  pozar1: {
+    backgroundColor: '#621708',
+    width: 330,
+    height: 290,
+    borderRadius: 25,
+    marginTop: 20,
   },
 
   input1:{
@@ -95,41 +111,7 @@ const styles = StyleSheet.create({
     color: '#621708',
     fontWeight: 'bold'
   },
-
-  Podnaslov1: {
-    fontSize: 18,
-    bottom: 5,
-    right: 130,
-    color: 'black',
-    top: 15,
-    fontWeight: 'normal'
-  },
-
-  Podnaslov2: {
-    fontSize: 18,
-    bottom: 5,
-    right: 130,
-    color: 'black',
-    fontWeight: 'normal'
-  },
-
-  Podnaslov3: {
-    fontSize: 18,
-    top: 35,
-    right: 75,
-    color: 'black',
-    fontWeight: 'normal'
-  },
-
-  Parent:{
-    width: 300,
-    height: 120,
-    backgroundColor: '#2F80ED',
-    borderRadius: 24,
-    marginTop: 10,
-    display: 'flex',
-    justifyContent: 'center'
-  },
+  
 });
 
 export default USlucajuPozara;

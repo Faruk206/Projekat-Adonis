@@ -14,7 +14,16 @@ const Pozari = () => {
         <Text style = {styles.Naslov}>Trenutni požari</Text>
 
         <View style = {styles.pozar}>
-            <Text style = {styles.lokacija}>Donji Vakuf</Text>
+            <Text style = {styles.tekst1}>Donji Vakuf</Text>
+            <View style = {styles.linija}></View>
+            <View style = {styles.donjiDio}>
+              <Text style = {styles.tekst2}>Vrijeme prijave: 16:37</Text>
+            </View>
+            <Pressable style = {styles.Child}><Text style = {styles.tekst2}>Dostupan sam</Text></Pressable>
+        </View>
+        <View style = {styles.pozar}>
+            <Text style = {styles.tekst1}>Donji Vakuf</Text>
+            <View style = {styles.linija}></View>
         </View>
       </View>
     </View>
@@ -36,14 +45,40 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF'
   },
 
-  pozar: {
-    backgroundColor: '#621708',
+  linija:{
+    backgroundColor: '#FFFFFF',
     width: 330,
-    height: 120,
+    height: 3,
   },
 
-  lokacija: {
+  Child:{
+    width: 140,
+    height: 50,
+    backgroundColor: '#1A1D1F',
+    borderRadius: 24,
+    marginTop: 10,
+    display: 'flex',
+    justifyContent: 'center'
+  },
+
+  pozar: {
+    backgroundColor: '#621708',
+    width: 340,
+    height: 150,
+    marginTop: 20,
+    borderRadius: 25,
+  },
+
+  tekst1: {
     color: '#FFFFFF',
+    fontSize: 20,
+    marginLeft: 20
+  },
+
+  tekst2: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    marginLeft: 10
   },
 
   Naslov: {
