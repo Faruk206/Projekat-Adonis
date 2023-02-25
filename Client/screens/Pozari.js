@@ -7,6 +7,19 @@ const Pozari = () => {
 
   const [users, setUsers] = useState([]);
 
+  dostupni = 0;
+  const brojDostupnih = () => {
+    
+    dostupni++;
+    axios.post('http://192.168.1.2:3000/PrijaviDostupne', { dostupni })
+    .then(response => {
+      console.log(response.data);
+    })
+    .catch(error => {
+      console.error(error.message);
+    });
+};
+
   useEffect(() => {
     axios.get('http://192.168.1.2:3000/pozari')
       .then((response) => setUsers(response.data))
@@ -26,7 +39,7 @@ const Pozari = () => {
             <Text style = {styles.tekst1}>{user.vrijeme}</Text>
               <Text style = {styles.tekst2}>{user.dodInfo}</Text>
             </View>
-            <Pressable style = {styles.Child}><Text style = {styles.tekst3}>Dostupan sam</Text></Pressable>
+            <Pressable onPress = {brojDostupnih} style = {styles.Child}><Text style = {styles.tekst3}>Dostupan sam</Text></Pressable>
           </View>
       ))}
        </View>
