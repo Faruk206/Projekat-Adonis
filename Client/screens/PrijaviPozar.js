@@ -2,7 +2,7 @@ import {React, useState} from 'react';
 import { View, Text, StyleSheet, Pressable, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MultipleSelectList } from 'react-native-dropdown-select-list'
-
+import axios from 'axios';
 
 const PrijaviPozar = () => {
   
@@ -11,26 +11,15 @@ const PrijaviPozar = () => {
   const [dodinfo, setDodInfo] = useState('');
 
   const handleSubmit = () => {
-    const formData = new FormData();
-    formData.append('vrijeme', vrijeme);
-    formData.append('lokacija', lokacija);
-    formData.append('dodinfo', dodinfo);
-
-    fetch('http://192.168.1.2:3000/PrijaviPozar', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      body: formData,
+    
+    axios.post('http://192.168.1.2:3000/PrijaviPozar', { vrijeme, lokacija, dodinfo })
+    .then(response => {
+      console.log(response.data);
     })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+    .catch(error => {
+      console.error(error.message);
+    });
+};
 
   const navigation = useNavigation();
 

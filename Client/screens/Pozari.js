@@ -1,30 +1,35 @@
-import {React, useState} from 'react';
-import { View, Text, StyleSheet, Pressable, TextInput } from 'react-native';
+import {React, useState, useEffect} from 'react';
+import { View, Text, StyleSheet, Pressable, FlatList, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
-
+import axios from 'axios';
 
 const Pozari = () => {
-  
-  const navigation = useNavigation();
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://192.168.1.2:3000/pozari')
+      .then((response) => setUsers(response.data))
+      .catch((error) => console.error(error));
+  }, []);
 
   return (
     <View style={styles.container}>
       <View style = {styles.prijava}>
         <Text style = {styles.Naslov}>Trenutni požari</Text>
-
         <View style = {styles.pozar}>
-            <Text style = {styles.tekst1}>Donji Vakuf</Text>
-            <View style = {styles.linija}></View>
-            <View style = {styles.donjiDio}>
-              <Text style = {styles.tekst2}>Vrijeme prijave: 16:37</Text>
+            {users.map((user, index) => (
+          <View key={index} style = {styles.pozar}>
+          <Text style = {styles.tekst1}>{user.lokacija}</Text>
+          <View style = {styles.linija}></View>
+          <View style = {styles.donjiDio}>
+            <Text style = {styles.tekst1}>{user.vrijeme}</Text>
+              <Text style = {styles.tekst2}>{user.dodInfo}</Text>
             </View>
-            <Pressable style = {styles.Child}><Text style = {styles.tekst2}>Dostupan sam</Text></Pressable>
-        </View>
-        <View style = {styles.pozar}>
-            <Text style = {styles.tekst1}>Donji Vakuf</Text>
-            <View style = {styles.linija}></View>
-        </View>
+            <Pressable style = {styles.Child}><Text style = {styles.tekst3}>Dostupan sam</Text></Pressable>
+          </View>
+      ))}
+       </View>
       </View>
     </View>
     
@@ -54,7 +59,7 @@ const styles = StyleSheet.create({
   Child:{
     width: 140,
     height: 50,
-    backgroundColor: '#1A1D1F',
+    backgroundColor: '#FFFFFF',
     borderRadius: 24,
     marginTop: 10,
     display: 'flex',
@@ -62,7 +67,7 @@ const styles = StyleSheet.create({
   },
 
   pozar: {
-    background: 'linear-gradient(#8BC6EC, #9599E2)',
+    backgroundColor: '#1A1D1F',
     width: 340,
     height: 150,
     marginTop: 20,
@@ -77,6 +82,12 @@ const styles = StyleSheet.create({
 
   tekst2: {
     color: '#FFFFFF',
+    fontSize: 16,
+    marginLeft: 10
+  },
+
+  tekst3: {
+    color: 'black',
     fontSize: 16,
     marginLeft: 10
   },
