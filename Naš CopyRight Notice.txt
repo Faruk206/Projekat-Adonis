@@ -1,0 +1,15 @@
+Copyright © [2023] [Faruk Balihodzic].
+
+Sva prava zadržana. Ovaj softver je zaštićen autorskim pravima u skladu sa zakonima Bosne i Hercegovine i međunarodnim zakonima o autorskim pravima.
+
+Sadržaj i dizajn ovog softvera, uključujući, ali ne ograničavajući se na tekst, grafiku, logotipe, ikone i slike, su intelektualno vlasništvo autora ovog softvera, osim u slučajevima gdje se drugačije naznači.
+
+Ova softverska aplikacija namijenjena je isključivo za privatnu upotrebu i ne smije se koristiti u komercijalne svrhe bez izričitog pismenog odobrenja autora.
+
+Zabranjeno je kopiranje, distribucija, modifikacija ili reprodukcija softvera bez izričite pisane dozvole autora. Svako kršenje autorskih prava bit će sankcionisano u skladu sa zakonskim propisima.
+
+Autorska prava na ovaj softver pripadaju Faruku Balihodzicu, osim u slučajevima gdje se drugačije naznači.
+
+Svi zaštitni znakovi, marke, logotipi i imena proizvoda koja se koriste u ovom softveru su vlasništvo njihovih odgovarajućih vlasnika.
+
+Korištenjem ovog softvera, korisnik izričito prihvaća sve odredbe ovog copyright notisa.
