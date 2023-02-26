@@ -33,13 +33,16 @@ const Pozari = () => {
         <View style = {styles.pozar}>
             {users.map((user, index) => (
           <View key={index} style = {styles.pozar}>
-          <Text style = {styles.tekst1}>{user.lokacija}</Text>
+          <Text style = {styles.lokacija}>{user.lokacija}</Text>
           <View style = {styles.linija}></View>
           <View style = {styles.donjiDio}>
-            <Text style = {styles.tekst1}>{user.vrijeme}</Text>
-              <Text style = {styles.tekst2}>{user.dodInfo}</Text>
+            <Text style = {styles.vrijeme}>Vrijeme prijave: {user.vrijeme}</Text>
+              <Text style = {styles.vrijeme}>Dodatne informacije: {"\n"}{user.dodInfo}</Text>
             </View>
-            <Pressable onPress = {brojDostupnih} style = {styles.Child}><Text style = {styles.tekst3}>Dostupan sam</Text></Pressable>
+            <View style = {styles.donjiDio2}>
+              <Pressable onPress = {brojDostupnih} style = {styles.Child}><Text style = {styles.tekst3}>Dostupan sam</Text></Pressable>
+              <Text style = {styles.dostupni}>Broj dostupnih: {user.brojDostupnih}</Text>
+            </View>
           </View>
       ))}
        </View>
@@ -65,8 +68,8 @@ const styles = StyleSheet.create({
 
   linija:{
     backgroundColor: '#FFFFFF',
-    width: 330,
-    height: 3,
+    width: 335,
+    height: 2,
   },
 
   Child:{
@@ -74,23 +77,44 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: '#FFFFFF',
     borderRadius: 24,
-    marginTop: 10,
+    marginTop: 30,
+    marginLeft: 30,
     display: 'flex',
     justifyContent: 'center'
   },
 
   pozar: {
     backgroundColor: '#1A1D1F',
-    width: 340,
-    height: 150,
+    width: 360,
+    height: 250,
     marginTop: 20,
-    borderRadius: 25,
+    borderRadius: 20,
   },
 
-  tekst1: {
+  lokacija: {
+    color: '#FFFFFF',
+    fontSize: 35,
+    textAlign:'center',
+    marginTop: -2,
+  },
+
+  dostupni: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    marginLeft: 15,
+    marginTop: 40,
+  },
+
+  donjiDio2:{
+    display: 'flex',
+    flexDirection: 'row',
+  },
+
+  vrijeme: {
     color: '#FFFFFF',
     fontSize: 20,
-    marginLeft: 20
+    marginLeft: 10,
+    marginTop: 5,
   },
 
   tekst2: {
@@ -106,7 +130,7 @@ const styles = StyleSheet.create({
   },
 
   Naslov: {
-    fontSize: 35,
+    fontSize: 40,
     fontFamily: 'notoserif',
     bottom: 20,
     color: '#621708',

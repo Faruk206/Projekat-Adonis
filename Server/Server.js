@@ -18,15 +18,8 @@ const db = new sqlite3.Database('./database.db', (err) => {
   console.log('Povezan na BazuPodataka.');
 });
 
-db.run(`CREATE TABLE IF NOT EXISTS pozari (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  lokacija TEXT NOT NULL,
-  vrijeme TEXT NOT NULL,
-  dodInfo TEXT
-)`);
 
-
-
+//Displaya prijavljene požare na GET zahtjev
 app.get('/pozari', (req, res) => {
   db.all(`SELECT * FROM pozari`, (err, rows) => {
     if (err) {
@@ -38,11 +31,11 @@ app.get('/pozari', (req, res) => {
   });
 });
 
-
+//Dodaje prijavljene požare u Bazu podataka
 app.post('/PrijaviPozar', (req, res) => {
   const lokacija = req.body.lokacija;
   const vrijeme = req.body.vrijeme;
-  const dodInfo = req.body.dodInfo;
+  const dodInfo = req.body.dodinfo;
 
   console.log(dodInfo);
   console.log(lokacija);
@@ -58,10 +51,8 @@ app.post('/PrijaviPozar', (req, res) => {
   });
 });
 
-db.run('ALTER TABLE pozari ADD broj_dostupnih;')
-
+//Briše prijavu nakon jedne minute
 const delayInSeconds = 60;
-
 
   setTimeout(() => {
     // Use the DELETE statement to delete the row
@@ -69,9 +60,27 @@ const delayInSeconds = 60;
     });
   }, delayInSeconds * 60);
 
+  //Dodaje sliku u Bazu podataka
+app.post('/slika', (req, res) => {
+    const imageData = Buffer.from(req.body.image, 'base64');
 
+    db.run(
+      'INSERT INTO pozari (slika) VALUES (?)',
+      [imageData],
+      function (err) {
+        if (err) {
+          console.error(err);
+          res.status(500).json({ error: 'Failed to store image in database' });
+        } else {
+          console.log(`Image stored with ID ${this.lastID}`);
+          res.json({ id: this.lastID });
+        }
+      }
+    );
+  });
+  
 
-
+//Prijava korisnika
 app.post('/Prijava korisnika', (req, res) => {
 
 });

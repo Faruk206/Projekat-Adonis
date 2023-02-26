@@ -1,11 +1,45 @@
 import {React, useState} from 'react';
 import { View, Text, StyleSheet, Pressable, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { MultipleSelectList } from 'react-native-dropdown-select-list'
 import axios from 'axios';
+import ImagePicker from 'react-native-image-picker';
+import { encode } from 'react-native-image-base64';
 
 const PrijaviPozar = () => {
   
+  const options = {
+    mediaType: 'photo',
+    quality: 1,
+  };
+
+  const posaljiSliku = () =>{
+    ImagePicker.launchCamera(options, response => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else {
+        encode(response.data, imageData => {
+          fetch('http://192.168.1.2:3000/slika', {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ image: imageData }),
+          })
+            .then(response => response.json())
+            .then(data => {
+              console.log(data);
+            })
+            .catch(error => {
+              console.error(error);
+            });
+        });
+      }
+    });
+  }
+
   const [vrijeme, setVrijeme] = useState('');
   const [lokacija, setLokacija] = useState('');
   const [dodinfo, setDodInfo] = useState('');
@@ -36,7 +70,8 @@ const PrijaviPozar = () => {
 
       <Text style = {styles.Podnaslov3}>Dodatne informacije</Text>
       <TextInput value={dodinfo} onChangeText={text => setDodInfo(text)} style = {styles.input3}></TextInput>
-        
+
+        <Pressable style = {styles.signUp} onPress={posaljiSliku}><Text style = {{fontSize: 20, fontWeight: 'bold', left: 100}}>Dodaj sliku</Text></Pressable>
         <Pressable style = {styles.signUp} onPress={handleSubmit}><Text style = {{fontSize: 20, fontWeight: 'bold', left: 100}}>Prijavi</Text></Pressable>
         </View>
       </View>
@@ -65,7 +100,7 @@ const styles = StyleSheet.create({
   prijava1: {
     alignItems: 'center',
     width: 350,
-    height: 460,
+    height: 480,
     backgroundColor: '#2f3e46',
     borderRadius: 30,
   },
