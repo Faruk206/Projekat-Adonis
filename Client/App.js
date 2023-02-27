@@ -10,6 +10,7 @@ import Pozari from './screens/Pozari';
 import USlucajuPozara from './screens/USlucajuPozara';
 import KakoSprijeciti from './screens/KakoSprijeciti';
 import Info from './screens/Info'
+import Registracija from './screens/Registracija';
 
 const AppStack = createStackNavigator();
 
@@ -20,6 +21,7 @@ export default function App() {
       <NavigationContainer>
         <AppStack.Navigator screenOptions={{headerShown: false}}>
           <AppStack.Screen name="LoginScreen" component={LoginScreen} />
+          <AppStack.Screen name="Registracija" component={Registracija} />
           <AppStack.Screen name="Prijavi" component={Prijavi} />
           <AppStack.Screen name="PrijaviPozar" component={PrijaviPozar} />
           <AppStack.Screen name="Pozari" component={Pozari} />

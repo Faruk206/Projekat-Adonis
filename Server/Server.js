@@ -51,6 +51,7 @@ app.post('/PrijaviPozar', (req, res) => {
   });
 });
 
+
 //Briše prijavu nakon jedne minute
 const delayInSeconds = 60;
 
@@ -84,6 +85,26 @@ app.post('/slika', (req, res) => {
 app.post('/Prijava korisnika', (req, res) => {
 
 });
+
+app.post('/Registracija', (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+  const volonter = req.body.password;
+
+  console.log(dodInfo);
+  console.log(lokacija);
+  console.log(vrijeme);
+
+  db.run(`INSERT INTO korisnici (email, password, volonter) VALUES (?, ?, ?)`, [email, password, volonter], function(err) {
+    if (err) {
+      console.error(err.message);
+      res.status(500).send('Internal Server Error');
+    } else {
+      res.send(`Created user with ID ${this.lastID}`);
+    }
+  });
+});
+
 
 
 

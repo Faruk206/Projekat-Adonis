@@ -42,6 +42,8 @@ const Info = () => {
               notifikaciju na uređaj da je požar negdje u njegovog blizini. Što je više volontera u jednom području, lakša je i zaštita od velika požara kao i pomoć oko njega!
             </Text>
         </View>
+        <View style = {styles.pozar3}>
+        </View>
         </ScrollView>
       </View>
     </View>
@@ -60,7 +62,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     margin: 20,
     color: '#FFFFFF',
-    fontSize: 19,
+    fontSize: 22,
     fontStyle: 'underline',
     fontWeight: 'bold',
     textDecorationLine: 'underline'
@@ -70,7 +72,7 @@ const styles = StyleSheet.create({
     marginTop: -10,
     margin: 20,
     color: '#FFFFFF',
-    fontSize: 16,
+    fontSize: 17,
     fontStyle: 'italic',
   },
 
@@ -91,42 +93,37 @@ const styles = StyleSheet.create({
   },
 
   pozar: {
-    backgroundColor: '#14213d',
-    width: 330,
-    height: 280,
-    borderRadius: 25
+    backgroundColor: '#1b263b',
+    width: 370,
+    height: 310,
+    borderColor: '#6a994e',
+    borderLeftWidth: 6,
+    borderBottomWidth: 6,
+    borderTopWidth: 6,
+    borderRightWidth: 6,
+    borderRadius: 15,
+    marginTop: 10,
   },
 
   pozar1: {
-    backgroundColor: '#14213d',
-    width: 330,
-    height: 500,
-    borderRadius: 25,
-    marginTop: 20,
-  },
-
-  Child:{
-    width: 340,
-    height: 70,
-    backgroundColor: '#1A1D1F',
-    borderRadius: 24,
+    backgroundColor: '#1b263b',
+    width: 370,
+    height: 510,
+    borderColor: '#6a994e',
+    borderLeftWidth: 6,
+    borderBottomWidth: 6,
+    borderTopWidth: 6,
+    borderRightWidth: 6,
+    borderRadius: 15,
     marginTop: 10,
-    display: 'flex',
-    justifyContent: 'center'
   },
 
-  DivTekst1:{
-    color: 'white',
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginLeft: 20,
-   },
 
   Naslov: {
-    fontSize: 35,
+    fontSize: 45,
     fontFamily: 'notoserif',
     bottom: 20,
-    color: '#621708',
+    color: '#1b263b',
     fontWeight: 'bold'
   },
   
