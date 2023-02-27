@@ -1,5 +1,7 @@
 # Projekat-Adonis
 
+![image](https://user-images.githubusercontent.com/77299995/221421596-ce19dc92-db1b-48e2-920e-c1f3bf47f39b.png)
+
 ## Logo aplikacije
 ![image](https://user-images.githubusercontent.com/77299995/221375405-0fb2ce38-2974-4353-9988-e056d211a8c0.png)
 
@@ -17,3 +19,9 @@ Ucenici koji su radili na ovom projektu:
 
 - Ideja iza ovog projekta jeste bila "Zaštita i pomoć oko požara".
 - Glavna ideja ove aplikacije jeste da omoguci regularnim ljudima (civilima) da intervenišu i pomognu u slučaju požara, isto tako, aplikacija bi notifikovala svim ljudima u odredjenom radijusu da je požar upravo izbio.
+
+
+
+
+
+
